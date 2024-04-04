@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'add_board_page' %}">Create</a>
+    </header>
+    {% for board in boards %}
+    <h1>{{ board.title }}</h1>
+    <p>{{ board.description }}</p>
+    <img src="{{ board.image }}" alt="">
+    <a href="{% url 'board_detail_page' pk=board.pk %}">View</a>
+    <a href="{% url 'edit_board_page' pk=board.pk %}">Edit</a>
+    <a href="{% url 'delete_board_page' pk=board.pk %}">Delete</a>
+    {% endfor %}
+</body>
+</html>
